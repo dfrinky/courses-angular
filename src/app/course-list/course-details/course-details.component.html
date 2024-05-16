@@ -15,7 +15,10 @@
                     <div class="row">
                         <div class="col text-center">
                             <b>
-                                {{course.weeks}} nedelja • {{course.classes}} casova • {{course.classesPerWeek}} casova nedeljno
+                                {{course.weeks}} nedelja • {{course.classes}} cas<small *ngIf="([2,3,4].includes(course.classes)) || (course.classes >=20 && [2,3,4].includes(course.classes % 10))">a</small>
+                                <small *ngIf="(course.classes % 10 == 1)"></small>
+                                <small *ngIf="!(([2,3,4].includes(course.classes)) || (course.classes >=20 && [2,3,4].includes(course.classes % 10)) || (course.classes % 10 == 1))">ova</small>
+                                 • {{course.classesPerWeek}} casova nedeljno
                             </b>
                         </div>
                     </div>
