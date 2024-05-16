@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <div class="col-2">
+                    <img src='/assets/images/{{course.image}}' class="card-img-top" alt="...">
+                </div>
+                <div class="col-8 offset-2" style="margin: auto;">
+                    <!-- d-flex flex-column justify-content-center -->
+                    <div class="row">
+                        <div class="col text-center">
+                            <h2 class="card-title">{{course.name}}</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <b>
+                                {{course.weeks}} nedelja • {{course.classes}} casova • {{course.classesPerWeek}} casova nedeljno
+                            </b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{course.overview}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>Cena</h5>
+                </div>
+                <div class="col-3">
+                    <h5>{{course.price | currency: ' ' : 'symbol-narrow' : '4.2-2'}} RSD</h5>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col">
+                    <small> • Navedenu cenu je moguce platiti odjednom ili na tri mesecne rate</small>
+                    <br>
+                    <small> • Uslov za realizaciju planiranih kurseva je upis neophodnog broja polaznika</small>
+                </div>
+            </div>  
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

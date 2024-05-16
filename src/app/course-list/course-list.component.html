@@ -1,10 +1,36 @@
-<div class="row">
-    <div class="col">
-        <h2 class="fw-bold text-center my-4">Kursevi</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="fw-bold text-center my-4">Kursevi</h2>
+        </div>
     </div>
-</div>
-<div class="row">
-    <!-- u ovaj red idu i course-item i search -->
-    <div class="col">
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-4" *ngFor="let item of courseList.results">
+                    <app-item-course [courseItem]="item"></app-item-course>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <p>Naziv</p>
+                    <input type="text" [formControl]="searchControl" (keyup)="search()">
+                    <label for="customRange3" class="form-label">Trajanje do {{this.rangeControl.value}} nedelj<small style="font-size: 1rem;" *ngIf="([2,3,4].includes(rangeControl.value)) || (rangeControl.value >= 20 && [2,3,4].includes(rangeControl.value % 10)); else elseTemplate">e</small></label>
+                    <ng-template #elseTemplate>a</ng-template>
+                    <input type="range" [formControl]="rangeControl" class="form-range" min="1" max="20" step="1" id="customRange3" (change)="rangeFilter()">
+                    </div>
+                    <select (change)="sort()" [formControl]="sortSelect" name="" id="">
+                        <option value="1">Bez sortiranja</option>
+                        <option value="2">Cena rastuca</option>
+                        <option value="3">Cena opadajuca</option>
+                        <option value="4">Trajanje rastuce</option>
+                        <option value="5">Trajanje opadajuce</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
