@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <form (ngSubmit)="submit()" [formGroup]="forma" class="form-group">
+            <label for="courseSelect">Kurs</label>
+            <br />
+            <select formControlName="courseId" name="courseSelect" onmousedown="if(this.options.length>8){this.size=4;}" onchange='this.size=0;' id="courseSelect">
+              <ng-container *ngFor="let courseItem of courseList.results">
+                <option *ngIf="preselectedCourse.id != null && preselectedCourse.id == courseItem.id" value="{{courseItem.id}}" selected>{{courseItem.name}}</option>
+                <option *ngIf="preselectedCourse.id == null" value="{{courseItem.id}}">{{courseItem.name}}</option>
+              </ng-container>
+            </select>
+            <br />
+            <label for="name">Ime i prezime</label>
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Petar Petrovic">
+            <label for="eMail">E-mail</label>
+            <input formControlName="eMail" type="email" class="form-control" id="eMail" aria-describedby="emailHelp"
+              placeholder="example@gmail.com">
+            <label for="tel">Telefon</label>
+            <input formControlName="tel" type="text" class="form-control" id="tel" placeholder="0638275996">
+            <label for="adress">Adresa</label>
+            <input formControlName="adress" type="text" class="form-control" id="adress" placeholder="Bulevar Jovana Ducica 67">
+            <button type="submit" class="btn btn-primary">Prijavi me</button>
+          </form>
+        </div>
+    </div>
+</div>

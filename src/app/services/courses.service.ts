@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { Observable, map } from 'rxjs';
 import { CourseSearchResult } from '../model/courseSearchResult';
+import { Course } from '../model/course';
+import { Application } from '../model/application';
 
 const baseURL = 'http://localhost:3000/api/courses';
 
@@ -20,8 +22,8 @@ export class CoursesService {
     if (params) {
       options = {
         params: new HttpParams()
-          // .set('page', params.page || "")
-          // .set('pageSize', params.pageSize || "")
+          .set('sort', params.sort || "")
+          .set('sortDirection', params.sortDirection || "")
           .set('filter', params.filter && JSON.stringify(params.filter) || "")
       }
     }
@@ -30,4 +32,15 @@ export class CoursesService {
       return new CourseSearchResult(data);
     }));
   }
+
+  getSingleCourse(id: number): Observable<Course>{
+    return this.http.get(baseURL + "/" + id).pipe(map((data: any) => {
+      return new Course(data);
+    }))
+  }
+
+  postApplication(prijava: Application):Observable<any> {
+    return this.http.post("http://localhost:3000/api/applications", prijava);
+  }
+
 }

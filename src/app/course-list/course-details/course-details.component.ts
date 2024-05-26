@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Course } from 'src/app/model/course';
 import { CoursesService } from 'src/app/services/courses.service';
@@ -26,6 +26,7 @@ export class CourseDetailsComponent {
     this.service.getSingleCourse(this.courseId).subscribe({
       next: (data: any) => {
         this.course = data;
+        // console.log(this.course);
       }
     })
   }

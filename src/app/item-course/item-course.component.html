@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-body">
+        <img style="width: 50%;" src='/assets/images/{{courseItem.image}}' class="card-img-top" alt="...">
+        <h5 class="card-title">{{courseItem.name}}</h5>
+        <p class="card-text">{{courseItem.overview}}</p>
+        <a [routerLink]="[courseItem.id]" href="#" class="">Saznaj vise</a>
+        <br>
+        <div class="text-center">
+            <small>{{courseItem.weeks}} </small>
+            <small>nedelj</small>
+            <small *ngIf="([2,3,4].includes(courseItem.weeks)) || (courseItem.weeks >=20 && [2,3,4].includes(courseItem.weeks % 10)); else elseTemplate">e</small>
+            <ng-template #elseTemplate>a</ng-template>
+        </div>
+        <h5 class="text-center">{{courseItem.price | currency: ' ' : 'symbol-narrow' : '4.2-2'}}  RSD</h5>
+    </div>
+</div>

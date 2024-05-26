@@ -7,18 +7,29 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItemCourseComponent } from './item-course/item-course.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CourseDetailsComponent } from './course-list/course-details/course-details.component';
+import { ApplicationFormComponent } from './application-form/application-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseListComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    ItemCourseComponent,
+    CourseDetailsComponent,
+    ApplicationFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
