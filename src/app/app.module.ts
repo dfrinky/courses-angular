@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CourseDetailsComponent } from './course-list/course-details/course-details.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApplicationFormComponent } from './application-form/application-form.co
     NavbarComponent,
     ItemCourseComponent,
     CourseDetailsComponent,
-    ApplicationFormComponent
+    ApplicationFormComponent,
+    ApplicationListComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,6 @@ export class CourseDetailsComponent {
     this.service.getSingleCourse(this.courseId).subscribe({
       next: (data: any) => {
         this.course = data;
-        // console.log(this.course);
       }
     })
   }

@@ -78,7 +78,6 @@ export class ApplicationFormComponent {
       error: (err: any) => {
         console.log(err);
         if(err.status == 409){
-        //  this.greska = "Vec postoji prijava sa istim email-om!"
           alert("Vec postoji prijava sa istim email-om!");
         }
       }
